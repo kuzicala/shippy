@@ -2,34 +2,10 @@ package main
 
 import (
 	"context"
-	"errors"
 	"github.com/micro/go-micro"
 	"log"
 	pb "shippy/vessel-service/proto/vessel"
 )
-
-type Repository interface {
-	FindAvailable(vessel *pb.Specification) (*pb.Vessel, error)
-}
-
-type VesselRepository struct {
-	Vessels []*pb.Vessel
-}
-
-func (repo *VesselRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel, error) {
-	for _, v := range repo.Vessels {
-		if v.Capacity >= spec.Capacity && v.MaxWeight >= spec.MaxWeight {
-			return v, nil
-		}
-	}
-
-	return nil, errors.New("no vessel can't be use")
-
-}
-
-type service struct {
-	repo Repository
-}
 
 //实现服务端
 func (s *service) FindAvailable(ctx context.Context, spec *pb.Specification, resp *pb.Response) error {
