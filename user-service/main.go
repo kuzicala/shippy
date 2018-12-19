@@ -1,9 +1,9 @@
 package main
 
 import (
+	pb "github.com/kuzicala/shippy/user-service/proto/user"
 	"github.com/micro/go-micro"
 	"log"
-	pb "shippy/user-service/proto/user"
 )
 
 func main() {

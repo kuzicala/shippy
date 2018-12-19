@@ -1,11 +1,11 @@
 package main
 
 import (
+	pb "github.com/kuzicala/shippy/consignment-service/proto/consignment"
+	vesselPb "github.com/kuzicala/shippy/vessel-service/proto/vessel"
 	"github.com/micro/go-micro"
 	"log"
 	"os"
-	pb "shippy/consignment-service/proto/consignment"
-	vesselPb "shippy/vessel-service/proto/vessel"
 )
 
 const (

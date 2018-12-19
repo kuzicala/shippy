@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 
-WORKDIR /go/src/shippy/consignment-cli
+WORKDIR /go/src/github.com/kuzicala/shippy/consignment-cli
 COPY . .
 
 RUN go get -u github.com/golang/dep/cmd/dep
@@ -18,6 +18,6 @@ RUN mkdir /app
 WORKDIR /app
 # 将微服务的服务端运行文件拷贝到 /app 下
 COPY consignment.json /app/consignment.json
-COPY --from=builder /go/src/shippy/consignment-cli/consignment-cli .
+COPY --from=builder /go/src/github.com/kuzicala/shippy/consignment-cli/consignment-cli .
 # 运行服务端
 CMD ["./consignment-cli"]

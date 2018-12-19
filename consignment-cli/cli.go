@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"encoding/json"
+	pb "github.com/kuzicala/shippy/consignment-service/proto/consignment"
 	"github.com/micro/go-micro"
 	"io/ioutil"
 	"log"
 	"os"
-	pb "shippy/consignment-service/proto/consignment"
 )
 
 const (

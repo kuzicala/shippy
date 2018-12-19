@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
+	"github.com/kuzicala/shippy/vessel-service/proto/vessel"
 	"gopkg.in/mgo.v2"
-	"shippy/vessel-service/proto/vessel"
 )
 
 type service struct {

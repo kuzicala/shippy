@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
+	pb "github.com/kuzicala/shippy/user-service/proto/user"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
 	microclient "github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/cmd"
 	"log"
 	"os"
-	pb "shippy/user-service/proto/user"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package main
 
 import (
+	pb "github.com/kuzicala/shippy/consignment-service/proto/consignment"
 	"gopkg.in/mgo.v2"
-	pb "shippy/consignment-service/proto/consignment"
 )
 
 const (

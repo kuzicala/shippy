@@ -1,25 +1,25 @@
 package main
 
 import (
+	pb "github.com/kuzicala/shippy/vessel-service/proto/vessel"
 	"github.com/micro/go-micro"
 	"log"
 	"os"
-	pb "shippy/vessel-service/proto/vessel"
 )
 
 const (
 	defaultHost = "localhost:27017"
 )
 
-func CreateDummyData(repository Repository)  {
-	defer  repository.Close()
+func CreateDummyData(repository Repository) {
+	defer repository.Close()
 
 	//停留在港口的货船，先写死
 	vessels := []*pb.Vessel{
 		{Id: "vessel001", Name: "Boaty Mcboatface", MaxWeight: 200000, Capacity: 500},
 	}
 
-	for _,v := range vessels{
+	for _, v := range vessels {
 		repository.Create(v)
 	}
 }
@@ -28,15 +28,15 @@ func main() {
 
 	host := os.Getenv("DB_HOST")
 
-	if host == ""{
+	if host == "" {
 		host = defaultHost
 	}
 
 	session, e := CreateSession(host)
 	defer session.Close()
 
-	if e != nil{
-		log.Fatalf("Error connecting to datastore:%v",e)
+	if e != nil {
+		log.Fatalf("Error connecting to datastore:%v", e)
 	}
 
 	repo := &VesselRepository{session.Copy()}
@@ -46,7 +46,7 @@ func main() {
 
 	newService.Init()
 
-	pb.RegisterVesselServiceHandler(newService.Server(), &service{session:session})
+	pb.RegisterVesselServiceHandler(newService.Server(), &service{session: session})
 
 	if err := newService.Run(); err != nil {
 		log.Fatalf("fail to serve:%v", err)

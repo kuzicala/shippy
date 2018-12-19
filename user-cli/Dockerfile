@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 
-WORKDIR /go/src/shippy/user-cli
+WORKDIR /go/src/github.com/kuzicala/shippy/user-cli
 
 COPY . .
 
@@ -20,6 +20,6 @@ RUN mkdir /app
 # 将工作目录切换到 /app 下
 WORKDIR /app
 
-COPY --from=builder /go/src/shippy/user-cli/user-cli .
+COPY --from=builder /go/src/github.com/kuzicala/shippy/user-cli/user-cli .
 # 运行服务端
 CMD ["./user-cli"]

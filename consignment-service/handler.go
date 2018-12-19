@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
+	"github.com/kuzicala/shippy/consignment-service/proto/consignment"
+	vesselProto "github.com/kuzicala/shippy/vessel-service/proto/vessel"
 	"gopkg.in/mgo.v2"
 	"log"
-	"shippy/consignment-service/proto/consignment"
-	vesselProto "shippy/vessel-service/proto/vessel"
 )
 
 type handler struct {

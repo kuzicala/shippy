@@ -1,6 +1,6 @@
 FROM golang:latest as builder
 
-WORKDIR /go/src/shippy/vessel-service
+WORKDIR /go/src/github.com/kuzicala/shippy/vessel-service
 
 COPY . .
 
@@ -20,6 +20,6 @@ RUN mkdir /app
 # 将工作目录切换到 /app 下
 WORKDIR /app
 
-COPY --from=builder /go/src/shippy/vessel-service/vessel-service .
+COPY --from=builder /go/src/github.com/kuzicala/shippy/vessel-service/vessel-service .
 # 运行服务端
 CMD ["./vessel-service"]

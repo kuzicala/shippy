@@ -1,9 +1,9 @@
 package main
 
 import (
+	pb "github.com/kuzicala/shippy/vessel-service/proto/vessel"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	pb "shippy/vessel-service/proto/vessel"
 )
 
 const (
